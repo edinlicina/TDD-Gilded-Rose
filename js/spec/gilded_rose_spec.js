@@ -42,4 +42,15 @@ describe("Gilded Rose", function () {
     update_quality();
     expect(items[0].quality).toEqual(23);
   });
+  it("should drop quality to 0 after the concert", function () {
+    items = [new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)];
+    update_quality();
+    expect(items[0].quality).toEqual(0);
+  });
+  it("should decrease sellin and quality by one in case of a normal item", function () {
+    items = [new Item("+5 Dexterity Vest", 10, 20)];
+    update_quality();
+    expect(items[0].sell_in).toEqual(9);
+    expect(items[0].quality).toEqual(19);
+  });
 });
