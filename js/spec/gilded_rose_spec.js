@@ -59,4 +59,9 @@ describe("Gilded Rose", function () {
     expect(items[0].sell_in).toEqual(2);
     expect(items[0].quality).toEqual(4);
   });
+  it("should not have negative sellin days", function () {
+    items = [new Item("+5 Dexterity Vest", 0, 5)];
+    update_quality();
+    expect(items[0].sell_in).toEqual(0);
+  });
 });
